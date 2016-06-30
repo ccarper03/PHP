@@ -1,0 +1,75 @@
+<?php 
+// Include the configuration file:
+require ('includes/config.inc.php');
+// Start output buffering:
+ob_start();
+// Initialize a session:
+session_start();
+// Check for a $page_title value:
+if (!isset($page_title)) {
+	$page_title = 'Electronix Store';
+}
+?>
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<title><?php echo $page_title; ?></title>
+<meta http-equiv="Content-Type" content="text/html; charset=windows-1252" />
+<link rel="stylesheet" type="text/css" href="style.css" />
+<script type="text/javascript" src="js/jquery-1.11.1.min.js" charset="utf=8"></script>
+
+<link rel="stylesheet" href="includes/js/jquery-ui.css">
+<script src="includes/js/jquery-1.10.2.js"></script>
+<script src="includes/js/jquery-ui.js"></script>
+<script src="includes/js/jquery.form-validator.min.js"></script>
+<script src="includes/js/boxOver.js"></script>
+<script src="includes/js/windowopen.js"></script>
+</head>
+<body>
+<div id="main_container">
+
+  <div id="header">
+    <div id="logo"> <a href="index.php"><img src="images/logo.png" alt="" border="0" width="237" height="140" /></a> </div>
+    <div class="oferte_content">
+      <div class="top_divider"><img src="images/header_divider.png" alt="" width="1" height="164" /></div>
+      <div class="oferta">
+        <div class="oferta_content"> <img src="images/laptop.png" width="94" height="92" alt="" border="0" class="oferta_img" />
+          <div class="oferta_details">
+            <div class="oferta_title">Samsung GX 2004 LM</div>
+            <div class="oferta_text"> For those insightful souls who appreciate the power of the web and excel at working and playing on it to the fullest, the Samsung Chromebook 2 Series will make everything even better. Every aspect of hardware and software was designed to optimize your online experience.  </div>
+            <a href="details.php" class="details">details</a> </div>
+        </div>
+      </div>
+      <div class="top_divider"><img src="images/header_divider.png" alt="" width="1" height="164" /></div>
+    </div>
+    <!-- end of oferte_content-->
+  </div>
+  <div id="main_content">
+    <div id="menu_tab">
+      <div class="left_menu_corner"></div>
+      <ul class="menu">
+        <li><a href="index.php" class="nav1"> Home</a></li>
+		<li class="divider"></li>
+        <li><a href="my_orders.php" class="nav2">My Orders</a></li>
+        <li class="divider"></li>
+        <li><a href="my_acc.php" class="nav4">My account</a></li>
+        <li class="divider"></li>
+	
+		<?php //Create a login/lodout link:
+if ( (isset($_SESSION['user_id'])) && (basename($_SERVER['PHP_SELF']) !='logout.php') ) {
+	echo '<li><a href="logout.php" class="nav4">Logout</a></li>';
+}else{
+	echo '<li><a href="login.php" class="nav4">Login</a></li>';
+	}
+?>
+        <li class="divider"></li>
+        <li><a href="register.php" class="nav4">Register</a></li>
+		<li class="divider"></li>
+        <li><a href="shipping.php" class="nav5">Shipping</a></li>
+        <li class="divider"></li>
+        <li><a href="contact.php" class="nav6">Contact Us</a></li>
+      </ul>
+      <div class="right_menu_corner"></div>
+    </div>
+
